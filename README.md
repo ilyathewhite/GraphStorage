@@ -9,6 +9,8 @@ It provides:
 
 ## Installation
 
+Requires Swift 6.0 or later and builds in Swift 6 language mode.
+
 ```swift
 .package(url: "https://github.com/ilyathewhite/GraphStorage.git", from: "1.0.0")
 ```
