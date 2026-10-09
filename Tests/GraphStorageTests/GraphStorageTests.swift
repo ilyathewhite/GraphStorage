@@ -45,9 +45,7 @@ struct GraphStorageTests {
     func requiredSingleMetadataValueThrowsWhenMissing() {
         let graph = StoredGraph(metadata: [], nodes: [], edges: [])
 
-        #expect(throws: StoredGraphError.missingMetadata(
-            key: "trace.title"
-        )) {
+        #expect(throws: StoredGraphError.missingMetadata(key: "trace.title")) {
             _ = try graph.requiredSingleMetadataValue(key: "trace.title")
         }
     }
@@ -63,10 +61,7 @@ struct GraphStorageTests {
             edges: []
         )
 
-        #expect(throws: StoredGraphError.duplicateMetadata(
-            key: "trace.title",
-            count: 2
-        )) {
+        #expect(throws: StoredGraphError.duplicateMetadata(key: "trace.title", count: 2)) {
             _ = try graph.requiredSingleMetadataValue(key: "trace.title")
         }
     }
@@ -91,10 +86,7 @@ struct GraphStorageTests {
         )
 
         let compressedData = try GraphStorageCodec.encodeCompressed(graph)
-        let decoded = try GraphStorageCodec.decodeCompressed(
-            StoredGraph.self,
-            from: compressedData
-        )
+        let decoded = try GraphStorageCodec.decodeCompressed(StoredGraph.self, from: compressedData)
         #expect(decoded == graph)
     }
 }

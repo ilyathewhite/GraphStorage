@@ -60,13 +60,7 @@ public struct StoredGraph: Codable, Equatable {
             payload: Value,
             encoder: JSONEncoder = JSONEncoder()
         ) throws {
-            self.init(
-                id: id,
-                kind: kind,
-                order: order,
-                payloadType: payloadType,
-                payload: try encoder.encode(payload)
-            )
+            self.init(id: id, kind: kind, order: order, payloadType: payloadType, payload: try encoder.encode(payload))
         }
 
         public func decodePayload<Value: Decodable>(

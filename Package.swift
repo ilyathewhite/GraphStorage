@@ -7,20 +7,11 @@ let package = Package(
         .macOS("13.0"), .iOS("16.0"), .tvOS(.v14)
     ],
     products: [
-        .library(
-            name: "GraphStorage",
-            targets: ["GraphStorage"]
-        )
+        .library(name: "GraphStorage", targets: ["GraphStorage"])
     ],
     targets: [
-        .target(
-            name: "GraphStorage",
-            dependencies: []
-        ),
-        .testTarget(
-            name: "GraphStorageTests",
-            dependencies: ["GraphStorage"]
-        )
+        .target(name: "GraphStorage", dependencies: []),
+        .testTarget(name: "GraphStorageTests", dependencies: ["GraphStorage"])
     ],
     swiftLanguageModes: [.v6]
 )
